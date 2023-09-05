@@ -37,7 +37,7 @@ num_arg=$#
 dir=${HOME}
 option=$1
 #content=${dir}/training_material_security
-content=${dir}/src/toolkits/edu_toolkit
+content=${dir}/training_materials/
 logfile=${dir}/log/$(basename $0).log
 
 # FUNCTIONS
