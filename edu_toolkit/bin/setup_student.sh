@@ -91,7 +91,7 @@ function copy_dir() {
 # Describe function.
 
 	if [ -d ${content} ] ; then
-		sudo cp -R ${content}/* ${HOME}/
+		sudo cp -R ${content}/* ${HOME}/training_materials/
 		cd ${HOME}
 		sudo chown -R training:training bin conf data ddl notebook tutorial
 	else
