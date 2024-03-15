@@ -113,7 +113,7 @@ function copy_dir() {
 function setup_conf() {
 # Setup configuration files, escape alias for cp -i
 	
-	if [ -f ${dir}/src/toolkits/edu_toolkit/conf/bashrc ]; then
+	if [ -f ${dir}/training_materials/edu_toolkit/conf/bashrc ]; then
 		cp ${content}/conf/bash_profile ${dir}/.bash_profile
 		cp ${content}/conf/bashrc ${dir}/.bashrc
 	else

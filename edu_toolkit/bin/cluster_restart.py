@@ -31,6 +31,19 @@ def main():
     CLUSTER.restart().wait()
     print "Restart complete."
 
+# Main Function
+def main():
+    cluster_api_instance = cm_client.ClustersResourceApi(api_client)
+#   cluster_api = ApiResoure(cm_host, version=7, username=admin_user, password=admin_password)
+    print "Connected to CM host on " + cm_host
+
+    cluster = cluster_api_instance.get_cluster(cluster_name)
+
+    print "Restarting the cluster"
+    #cluster.restart().wait()
+    print "Restart complete"
+
+
 if __name__ == "__main__":
     main()
 
