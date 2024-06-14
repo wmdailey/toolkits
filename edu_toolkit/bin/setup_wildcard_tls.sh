@@ -42,7 +42,7 @@
 # VARIABLES
 num_arg=$#
 dir=${HOME}
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 ipa_crt=/etc/ipa/ca.crt 
 
 # FUNCTIONS

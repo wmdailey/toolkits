@@ -39,7 +39,7 @@ json_file=${dir}/conf/interpreter.json
 host=edge.example.com
 host_list=${dir}/conf/list_host.txt
 option=$1
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

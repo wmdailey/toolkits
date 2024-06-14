@@ -51,7 +51,7 @@ nifi_jar=NIFI-1.16.0.2.1.4.1000-5.jar
 nifi_registry_JAR=nifi_registry-1.16.0.2.1.4.1000-5.jar
 nifi_standalone=nifi-1.16.0.2.1.4.1000-5-bin.tar.gz
 spark_ver=3.1
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

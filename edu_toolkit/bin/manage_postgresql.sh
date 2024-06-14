@@ -41,7 +41,7 @@ option=$1
 pg_data=/var/lib/pgsql/10/data
 db_user="root"
 db_password=BadPass@1
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

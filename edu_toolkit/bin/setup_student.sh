@@ -24,7 +24,8 @@
 
 # Title: setup_student.sh
 # Author: WKD
-# Date: 17MAR22
+# Date: 15JAN24
+# Version: 22MAR24
 # Purpose: Setup the training user with directories and configuration files. 
 
 # DEBUG
@@ -37,10 +38,8 @@ num_arg=$#
 dir=${HOME}
 option=$1
 username=training
-
-#content=${dir}/training_materials/security
-content=${dir}/src/toolkits/edu_toolkit
-logfile=${dir}/log/$(basename $0).log
+content=${dir}/training_materials/edu_toolkit/
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {
@@ -113,7 +112,7 @@ function copy_dir() {
 function setup_conf() {
 # Setup configuration files, escape alias for cp -i
 	
-	if [ -f ${dir}/training_materials/edu_toolkit/conf/bashrc ]; then
+	if [ -f ${content}/conf/bashrc ]; then
 		cp ${content}/conf/bash_profile ${dir}/.bash_profile
 		cp ${content}/conf/bashrc ${dir}/.bashrc
 	else

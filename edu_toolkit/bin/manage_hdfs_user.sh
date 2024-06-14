@@ -44,7 +44,7 @@ password=BadPass@1
 file_quota=$2
 space_quota=$3
 user=${dir}/conf/list_user.txt
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

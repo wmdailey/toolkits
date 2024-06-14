@@ -43,7 +43,7 @@ dir=${HOME}
 key_dir=${dir}/key
 ssh_dir=${dir}/.ssh
 #ssh_dir=${dir}/test
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

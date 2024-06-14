@@ -45,7 +45,7 @@
 num_arg=$#
 option=$1
 dir=${HOME}
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 ver_os=7.9
 ver_java=1.8
 ver_python=2.7

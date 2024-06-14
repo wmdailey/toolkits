@@ -40,7 +40,7 @@ option=$1
 hostS=${dir}/conf/list_host.txt
 group_file=${dir}/conf/list_group.txt
 user=${dir}/conf/list_user.txt
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

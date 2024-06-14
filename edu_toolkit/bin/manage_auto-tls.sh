@@ -41,7 +41,7 @@ certmgr_dir=/var/lib/cloudera-scm-server/certmanager
 ca_host=ipa.example.com
 cm_host=cmhost.example.com
 option=$1
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

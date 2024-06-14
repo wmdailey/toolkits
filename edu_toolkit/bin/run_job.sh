@@ -46,7 +46,7 @@ dir=${HOME}
 password=BadPass@1
 jar_file=/opt/cloudera/parcels/CDH/jars/hadoop-examples.jar
 date_time=$(date +%Y%m%d%H%M)
-log_file="${dir}/log/run-jobs.log"
+log_file="${dir}/logs/run-jobs.log"
 
 # FUNCTION
 function usage() {

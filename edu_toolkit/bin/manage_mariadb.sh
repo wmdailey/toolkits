@@ -43,7 +43,7 @@ host=cmhost.example.com
 mariadb_pw=BadPass@1
 db_user="root"
 db_password=BadPass@1
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

@@ -90,8 +90,8 @@ function check_file() {
 function setup_log() {
 # Check the existance of the log directory and setup the log file_check.
 
-	if [ ! -d ${dir}/log ]; then
-		mkdir ${dir}/log
+	if [ ! -d ${dir}/logs ]; then
+		mkdir ${dir}/logs
 	fi
 }
 

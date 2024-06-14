@@ -43,7 +43,7 @@ host=cmhost.example.com
 host_file=${dir}/conf/listhosts.txt
 service_list="atlas hbase hive impala kafka knox solr yarn"
 option=$1
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

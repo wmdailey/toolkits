@@ -38,7 +38,7 @@ dir=${HOME}
 host=cmhost.example.com
 host_FILE=${dir}/conf/listhosts.txt
 option=$1
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

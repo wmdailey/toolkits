@@ -45,7 +45,7 @@ cloudera_license=$2
 nifi_remote_host=$2
 admin_user=training
 nifi_ver=nifi-1.18.0.2.1.5.0-215
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

@@ -45,7 +45,7 @@ host_file=${dir}/conf/listhosts.txt
 work_dir=/usr/java/default/jre/lib/security
 jssecacerts_password=BadPass@1
 cm_truststore_pem=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_ca_cert.pem
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

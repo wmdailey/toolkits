@@ -43,7 +43,7 @@ input=$2
 dir=${HOME}
 host=${dir}/conf/list_host.txt
 apps_list=${dir}/conf/list_app.txt
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {
@@ -79,9 +79,9 @@ DESCRIPTION
 EXAMPLES
 	$ cat /home/user/conf/list_host.txt
 
-	$ run_remote_node.sh -c "sudo mkdir /var/data"
+	$ run_remote_cmd.sh -c "sudo mkdir /var/data"
 
-	$ run_remote_node.sh -d
+	$ run_remote_cmd.sh -d
 EOF
 	exit 
 }

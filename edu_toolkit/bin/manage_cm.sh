@@ -45,7 +45,7 @@ host=cmhost.example.com
 host_FILE=${dir}/conf/list_host.txt
 cm_admin=training
 cm_password=BadPass@1
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

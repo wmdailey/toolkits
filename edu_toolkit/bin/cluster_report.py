@@ -1,12 +1,40 @@
 #!/usr/bin/python
 
+# Copyright 2024 Cloudera, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Disclaimer
+# This script is for training purposes only and is to be used only
+# in support of approved training. The author assumes no liability
+# for use outside of a training environments. Unless required by
+# applicable law or agreed to in writing, software distributed under
+# the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+# OR CONDITIONS OF ANY KIND, either express or implied.
+
+
+# Title: cluster_report.pyh
+# Author: WKD
+# Date: 15JAN24
+# Version: 22MAR24
+# Purpose: Use CM REST API to run a cluster report
+
 import ConfigParser
 import cm_client
 from cm_api.api_client import ApiResource
 from cm_client.rest import ApiException
 from cm_api.endpoints.services import ApiService
 from pprint import pprint
-
 
 # Read in the config file
 config = ConfigParser.ConfigParser()
@@ -29,7 +57,6 @@ cm_client.configuration.verify_ssl = True
 # Path of truststore file
 cm_client.configuration.ssl_ca_cert = truststore
 
-
 # Create an instance of the API class
 api_host = 'https://' + cm_host
 port = '7183'
@@ -48,7 +75,6 @@ except ApiException as e:
     print("Failed to set session cookies. Exception occurred when calling "
         "ClouderaManagerResourceApi->get_version: %s\n" % e)
 
-
 # Main Function
 def main():
     cluster_api_instance = cm_client.ClustersResourceApi(api_client)
@@ -85,8 +111,7 @@ def main():
     print
     ## -- Output --
     # http://cm-host:7180/cmf/serviceRedirect/HDFS-1
-
-    print "Health check:"
+   print "Health check:"
     for health_check in hdfs.health_checks:
         print health_check.name, "---", health_check.summary
     print
@@ -112,37 +137,19 @@ def main():
             services = services_api_instance.read_services("Cluster1", view='FULL')
             for service in services.items:
                 print service.display_name, "-", service.type
-            if service.type == 'HDFS':
-                hdfs = service
-    print
-
-    print "Service status:"
-    print hdfs.name, hdfs.service_state, hdfs.health_summary
-    print
-    ## -- Output --
-    # HDFS-1 STARTED GOOD
-
-    print "Service URL:"
-    print hdfs.service_url
-    print
-    ## -- Output --
-    # http://cm-host:7180/cmf/serviceRedirect/HDFS-1
-
-    print "Health check:"
-    for health_check in hdfs.health_checks:
-        print health_check.name, "---", health_check.summary
-    print
-    ## -- Output --
-    # HDFS_BLOCKS_WITH_CORRUPT_REPLICAS --- GOOD
-    # HDFS_CANARY_HEALTH --- GOOD
-    # HDFS_DATA_NODES_HEALTHY --- GOOD
-    # HDFS_FREE_SPACE_REMAINING --- GOOD
-    # HDFS_HA_NAMENODE_HEALTH --- GOOD
-    # HDFS_MISSING_BLOCKS --- GOOD
-    # HDFS_STANDBY_NAMENODES_HEALTHY --- DISABLED
-    # HDFS_UNDER_REPLICATED_BLOCKS --- GOOD
+                if service.type.upper() == 'HDFS':
+                    hdfs = service
+                    print "========================="
+                    print "Service status:"
+                    print hdfs.name, hdfs.service_state, hdfs.health_summary
+                    print
+                    print "Service URL:"
+                    print hdfs.service_url
+                    print
+                    print "Health check:"
+                    for health_check in hdfs.health_checks:
+                        print health_check.name, "---", health_check.summary
+                    print "========================="
 
 if __name__ == "__main__":
     main()
-
-

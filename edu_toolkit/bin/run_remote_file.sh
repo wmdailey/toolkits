@@ -43,7 +43,7 @@ input=$2
 output=$3
 dir=${HOME}
 host=${dir}/conf/list_host.txt
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

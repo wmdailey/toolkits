@@ -42,7 +42,7 @@ dir=${HOME}
 master_host=master-1.example.com
 sudo_user="training"
 priv_key="${dir}/.ssh/admincourse.pem"
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {

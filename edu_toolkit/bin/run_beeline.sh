@@ -38,7 +38,7 @@ num_arg=$#
 dir=${HOME}
 host=cmhost.example.com
 option=$1
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {
@@ -82,26 +82,30 @@ function call_include() {
 
 function run_master() {
 # Start up beeline in classroom environment with TLS and Kerberos.
-
-	beeline -u 'jdbc:hive2://master-2.example.com:10000/default;ssl=true;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_truststore.jks;principal=hive/_host@EXAMPLE.COM'
+	echo
+	beeline -u 'jdbc:hive2://master-2.example.com:10000/default;ssl=true;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_truststore.jks;principal=hive/_HOST@EXAMPLE.COM'
 }
 
 function show_jdbc() {
 # Show the jdbc for a copy and paste.
 
-	echo --------Cut and paste-------
-
-	echo "jdbc:hive2://master-2.example.com:10000/default;ssl=true;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_truststore.jks;principal=hive/_host@EXAMPLE.COM"
-
-	echo "beeline -u 'jdbc:hive2://master-1.example.com:2181,master-2.example.com:2181,master-3.example.com:2181/default;serviceDiscoverMode=zookeeper;zooKeeperNamespace=hiveserver2;ssl=true;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_truststore.jks;principal=hive/_host@EXAMPLE.COM'"
-
-	echo ------------------------------
+	echo "Connecting through Hiverserver2 host with SSL and Kerberos"
+	echo
+	echo "beeline -u 'jdbc:hive2://master-2.example.com:10000/default;ssl=true;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_truststore.jks;principal=hive/_HOST@EXAMPLE.COM'"
+	echo
+	echo "Connecting Zookeeper with SSL and Kerberos"
+	echo
+	echo "beeline -u 'jdbc:hive2://master-1.example.com:2181,master-2.example.com:2181,master-3.example.com:2181/default;serviceDiscoveryMode=zookeeper;zooKeeperNamespace=hiveserver2;ssl=true;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_truststore.jks;principal=hive/_HOST@EXAMPLE.COM'"
+	echo
+	echo "Connecting through Zookeeper with SSL, Kerboers, and SAS QoP auth_conf"
+	echo
+	echo "beeline -u 'jdbc:hive2://master-1.example.com:2181,master-2.example.com:2181,master-3.example.com:2181/default;serviceDiscoveryMode=zookeeper;zooKeeperNamespace=hiveserver2;ssl=true;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_truststore.jks;principal=hive/_HOST@EXAMPLE.COM;saslqop=auth-conf'"
 }
 
 function run_zookeeper() {
 # Start up beeline in classroom environment with TLS and Kerberos.
-
-	beeline -u 'jdbc:hive2://master-1.example.com:2181,master-2.example.com:2181,master-3.example.com:2181/default;serviceDiscoverMode=zookeeper;zooKeeperNamespace=hiveserver2;ssl=true;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_truststore.jks;principal=hive/_host@EXAMPLE.COM'
+	echo
+	beeline -u 'jdbc:hive2://master-1.example.com:2181,master-2.example.com:2181,master-3.example.com:2181/default;serviceDiscoveryMode=zookeeper;zooKeeperNamespace=hiveserver2;ssl=true;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-in_cluster_truststore.jks;principal=hive/_HOST@EXAMPLE.COM'
 }
 
 function run_option() {

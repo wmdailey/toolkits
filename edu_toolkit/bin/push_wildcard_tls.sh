@@ -39,7 +39,7 @@ option=$1
 host_name=$2
 cluster_name=$3
 cert_name=$4
-logfile=${dir}/log/$(basename $0).log
+logfile=${dir}/logs/$(basename $0).log
 
 # FUNCTIONS
 function usage() {
